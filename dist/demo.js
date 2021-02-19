@@ -20,8 +20,6 @@ const SimpleTemplateEngine = (html,data) => {
 	return new Function(source_code.replace(/[\\\n\\\r\\\t]/g,'')).apply(data)
 }
 
-const RenderComponent = (renderTemplate,parent) => {
-	return async (data) => {
-		parent.innerHTML = SimpleTemplateEngine(renderTemplate,{data});
-	}
+const RenderComponent = (renderTemplate,parent) => (data) => {
+	parent.innerHTML = SimpleTemplateEngine(renderTemplate,{data});
 }
