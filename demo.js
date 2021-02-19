@@ -1,4 +1,4 @@
-// a stupidly simple addons for manipulating html from javascript
+// a stupidly simple addons for manipulating html from javascript without Reactjs
 
 const SimpleTemplateEngine = (html,data) => {
 	let source_code = "let code=[];with(this){";
@@ -20,7 +20,7 @@ const SimpleTemplateEngine = (html,data) => {
 	return new Function(source_code.replace(/[\\\n\\\r\\\t]/g,'')).apply(data)
 }
 
-const FetchComponent = (renderTemplate,parent) => {
+const RenderComponent = (renderTemplate,parent) => {
 	return async (data) => {
 		parent.innerHTML = SimpleTemplateEngine(renderTemplate,{data});
 	}
