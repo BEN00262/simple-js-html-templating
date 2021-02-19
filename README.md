@@ -48,4 +48,5 @@ supports if|for|else|switch in javascript
 </html>
 ```
 
+### sample output
 ![Alt text](examples/output.png?raw=true "Example Output")
