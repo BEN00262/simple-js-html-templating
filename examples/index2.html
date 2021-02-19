@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>example 2</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/javascript" src="../dist/demo.js"></script>
+    <script>
+        let render = RenderComponent(`
+        <% for (let r = 0; r < data.length;r++){%>
+            <div class="col-md-2" id="products">
+                <a href="#">
+                    <img src=<% data[r].imageURL %> alt="" width="100%" class="pb-3 pt-2">
+                    <p><% data[r].name %></p>
+                    <p class="text-muted">KSh <% data[r].price%></p>
+                </a>
+                <button type="button" class="btn btn-warning" class="pb-2" data-toggle="modal" data-target="#dell">view</button>
+            </div>
+        <%}%>
+        `,document.getElementById("root"));
+
+        render([{
+            imageURL:"assets/images/11.jpg",
+            name:"Dell Latitude E7740",
+            price:"38,999"
+        }])
+    </script>
+</body>
+</html>

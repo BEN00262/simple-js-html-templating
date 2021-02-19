@@ -5,8 +5,8 @@ const SimpleTemplateEngine = (html,data) => {
 	let tags = /<%([^%>]+)?%>/g,reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g,match,counter = 0;
 
 	let add = (line,js) => {
-		js? (source_code += line.match(reExp) ? line : 'code.push(' + line + ');') :
-            (source_code += line != '' ? 'code.push("' + line.replace(/"/g, '\\\\"') + '");' : '');
+		js? (source_code += line.match(reExp) ? line : `code.push(${line});`) :
+            (source_code += line != '' ? `code.push('${line.replace(/"/g, '\\\\"')}');` : '');
         return add;
 	}
 
